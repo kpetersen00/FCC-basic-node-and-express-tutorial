@@ -21,4 +21,14 @@ app.get('/json', (req, res) => {
 
 app.use('/public', express.static(__dirname + '/public'));
 
+app.get(
+  '/now',
+  (req, res, next) => {
+    req.time = new Date().toString();
+    next();
+  },
+  (req, res) => {
+    res.send(req.time);
+  }
+);
 module.exports = app;
