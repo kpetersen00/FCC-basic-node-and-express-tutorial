@@ -31,5 +31,5 @@ app.get(
     res.send({ time: req.time });
   }
 );
-app.get('/:word/echo', (req, res) => res.send(req.params.word));
+app.get('/:word/echo', (req, res) => res.json({ echo: req.params.word }));
 module.exports = app;
